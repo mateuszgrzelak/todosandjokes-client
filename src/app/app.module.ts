@@ -15,6 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 import { ParticlesModule } from 'ngx-particle';
+import { AboutWebsiteComponent } from './about-website/about-website.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ParticlesModule } from 'ngx-particle';
     MenuComponent,
     FooterComponent,
     LogoutComponent,
-    UpdateTodoComponent
+    UpdateTodoComponent,
+    AboutWebsiteComponent
   ],
   imports: [
     BrowserModule,

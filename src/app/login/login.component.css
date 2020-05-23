@@ -9,20 +9,6 @@
     align-items: center;
 }
 
-:host::after {
-    content: "";
-    background: url('../../../background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0.8;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -5;
-}
-
 
 /* .loginWindow{
     height: 30vh;
@@ -32,11 +18,12 @@
 } */
 
 .card {
-    height: 380px;
+    min-height: 380px;
     margin-left: auto;
     margin-right: auto;
     width: 400px;
     background-color: rgba(0, 0, 0, 0.5) !important;
+    z-index: 4;
 }
 
 .card-body {
@@ -114,9 +101,9 @@ input:focus {
 }
 
 .acceptForm {
-    width: 40%;
+    width: 50%;
 }
 
 .about {
-    width: 40%;
+    width: 50%;
 }

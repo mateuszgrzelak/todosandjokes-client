@@ -7,10 +7,12 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
+import { AboutWebsiteComponent } from './about-website/about-website.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'about', component: AboutWebsiteComponent },
   { path: '', component: WelcomeComponent, canActivate: [RouteGuardService],
     children:[{ path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService] },
     { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
