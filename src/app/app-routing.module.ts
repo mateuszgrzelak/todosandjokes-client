@@ -10,18 +10,18 @@ import { UpdateTodoComponent } from './update-todo/update-todo.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGuardService]},
-  { path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService] },
-  { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
-  { path: 'todos/update/:id', component: UpdateTodoComponent, canActivate: [RouteGuardService] },
+  { path: '', component: WelcomeComponent, canActivate: [RouteGuardService],
+    children:[{ path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService] },
+    { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
+    { path: 'todos/update/:id', component: UpdateTodoComponent, canActivate: [RouteGuardService] },]},
+  
   
   { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

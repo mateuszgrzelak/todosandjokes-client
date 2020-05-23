@@ -14,6 +14,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
+import { ParticlesModule } from 'ngx-particle';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ParticlesModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true}
