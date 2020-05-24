@@ -6,10 +6,10 @@
 
 :host::after {
     content: "";
-    background: url('../../../background.jpg');
+    background: url('../../background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.8;
+    opacity: 0.85;
     top: 0;
     left: 0;
     bottom: 0;

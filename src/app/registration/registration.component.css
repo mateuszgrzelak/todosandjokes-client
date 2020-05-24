@@ -10,7 +10,7 @@
 }
 
 .card {
-    min-height: 380px;
+    min-height: 370px;
     margin-left: auto;
     margin-right: auto;
     width: 400px;
@@ -22,36 +22,8 @@
     padding: 1.25rem 1.25rem 0 1.25rem;
 }
 
-.social_icon span {
-    font-size: 60px;
-    margin-left: 10px;
-    color: #FFC312;
-}
-
-.social_icon span:hover {
-    cursor: pointer;
-}
-
-.fa-facebook-square:hover {
-    color: #0066ff;
-}
-
-.fa-google-plus-square:hover {
-    color: #d34836;
-}
-
-.fa-github-square:hover {
-    color: #211f1f;
-}
-
 .card-header h3 {
     color: white;
-}
-
-.social_icon {
-    position: absolute;
-    right: 20px;
-    top: -45px;
 }
 
 .input-group-prepend span {
@@ -86,9 +58,13 @@ input:focus {
 }
 
 .acceptForm {
-    width: 50%;
+    width: 45%;
 }
 
 .about {
-    width: 50%;
+    width: 45%;
+}
+
+.space {
+    width: 10%;
 }

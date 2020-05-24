@@ -18,5 +18,6 @@ body {
     margin: 0;
     min-height: 100%;
     font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: grey;
+    overflow-x: hidden;
+    overflow-Y: hidden;
 }

@@ -16,7 +16,8 @@ import { UpdateTodoComponent } from './update-todo/update-todo.component';
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 import { ParticlesModule } from 'ngx-particle';
 import { AboutWebsiteComponent } from './about-website/about-website.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,12 @@ import { AboutWebsiteComponent } from './about-website/about-website.component';
     FooterComponent,
     LogoutComponent,
     UpdateTodoComponent,
-    AboutWebsiteComponent
+    AboutWebsiteComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
