@@ -1,0 +1,7 @@
+.mainContent {
+    height: 88vh;
+    overflow: auto;
+    background-color: indigo;
+    position: relative;
+    z-index: 5;
+}
