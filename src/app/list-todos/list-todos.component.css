@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    position: relative;
+}
+
+.mainContent {
+    height: 88vh;
+    overflow: auto;
+    background-color: teal;
+    position: relative;
+    z-index: 5;
+}
