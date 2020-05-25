@@ -7,7 +7,7 @@ import { slideInAnimation } from './animations';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations:[
-    slideInAnimation
+    slideInAnimation,
   ]
 })
 export class AppComponent implements OnInit{
