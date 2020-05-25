@@ -18,6 +18,8 @@ import { ParticlesModule } from 'ngx-particle';
 import { AboutWebsiteComponent } from './about-website/about-website.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoggedContentComponent } from './logged-content/logged-content.component';
+import { JokesComponent } from './jokes/jokes.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { RegistrationComponent } from './registration/registration.component';
     LogoutComponent,
     UpdateTodoComponent,
     AboutWebsiteComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoggedContentComponent,
+    JokesComponent,
   ],
   imports: [
     BrowserModule,
