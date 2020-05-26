@@ -1,7 +1,7 @@
-<div class="container mainContent">
-    <h1> My Todo's</h1>
-    <div class="alert alert-success" *ngIf='message'>{{message}}</div>
-    <table class="table">
+<div class="mainContent">
+    <div class="alert alert-success" *ngIf='message'>
+        {{message}}</div>
+    <table class=" table table-hover">
         <thead>
             <tr>
                 <th>description</th>
@@ -12,6 +12,13 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+                <td><button (click)="removeTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+            </tr>
             <tr *ngFor="let todo of todos">
                 <td>{{todo.description}}</td>
                 <td>{{todo.done}}</td>

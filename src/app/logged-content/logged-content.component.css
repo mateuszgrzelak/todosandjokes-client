@@ -1,0 +1,107 @@
+:host {
+    display: block;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.mainContent {
+    color: white;
+    height: 70vh;
+    overflow: visible;
+    background: rgba(42, 36, 78, 0.9);
+    z-index: 5;
+    border: 2px solid black;
+    border-radius: 50px 20px;
+}
+
+.menu {
+    position: relative;
+    top: -25px;
+    width: 100%;
+    height: 60px;
+}
+
+.menu img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.menu .logo {
+    position: relative;
+    top: -2px;
+    height: 80px;
+}
+
+.menu img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.menu .leftMenu {
+    margin-top: 5px;
+    width: 12%;
+    height: 40px;
+    margin-left: 20px;
+}
+
+.menu .todos {
+    margin-top: 5px;
+    width: 12%;
+    height: 35px;
+}
+
+@media (min-width: 0px) {
+    .menu .leftMenu {
+        width: 50px;
+        margin-left: 5px;
+        height: 30px;
+        top: -5px;
+    }
+    .menu .todos {
+        height: 25px;
+    }
+    .menu .logo {
+        width: 140px;
+        height: 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu .leftMenu {
+        width: 80px;
+        margin-left: 10px;
+        height: 45px;
+    }
+    .menu .todos {
+        height: 39px;
+    }
+    .menu .logo {
+        height: 60px;
+        width: 190px;
+    }
+}
+
+@media (min-width: 992px) {
+    .menu .leftMenu {
+        width: 90px;
+        margin-left: 10px;
+    }
+    .menu .logo {
+        width: 220px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .menu .leftMenu {
+        width: 100px;
+        margin-left: 20px;
+    }
+    .menu .logo {
+        width: 250px;
+    }
+}

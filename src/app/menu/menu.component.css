@@ -1,0 +1,10 @@
+:host {
+    height: 10vh;
+    position: relative;
+    z-index: 10;
+    color: white;
+}
+
+.navbar {
+    height: 7vh;
+}

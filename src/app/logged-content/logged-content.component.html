@@ -1,5 +1,11 @@
-<app-menu></app-menu>
-<div [@routeAnimations]="prepareRoute(outlet)">
-    <router-outlet #outlet="outlet"></router-outlet>
+<div class="container mainContent">
+    <div class="menu">
+        <img class="float-left logo" src="../../assets/img/MainLogo.png" alt="Img logo not found">
+        <img class="float-right leftMenu" src="../../assets/img/Logout.png" alt="Img logo not found">
+        <img class="float-right leftMenu" src="../../assets/img/Jokes.png" alt="Img logo not found">
+        <img class="float-right todos leftMenu" src="../../assets/img/Todos.png" alt="Img logo not found">
+    </div>
+    <div [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </div>
 </div>
-<app-footer></app-footer>

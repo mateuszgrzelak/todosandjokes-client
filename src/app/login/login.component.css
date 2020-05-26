@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 :host {
     height: 100vh;
-    /* background-image: url('https://download.hipwallpaper.com/desktop/1920/1080/90/66/hDpB7t.jpg');
-    background-size: cover;
-    background-repeat: no-repeat; */
     position: relative;
     display: flex;
     align-items: center;
@@ -13,7 +10,7 @@
     min-height: 380px;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    max-width: 400px;
     background-color: rgba(0, 0, 0, 0.5) !important;
     z-index: 4;
 }
@@ -26,6 +23,10 @@
     font-size: 60px;
     margin-left: 10px;
     color: #FFC312;
+}
+
+.social_icon i {
+    transition: 0.3s;
 }
 
 .social_icon span:hover {
