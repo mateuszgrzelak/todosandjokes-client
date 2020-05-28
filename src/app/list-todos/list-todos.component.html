@@ -1,49 +1,64 @@
 <div class="mainContent">
-    <div class="alert alert-success" *ngIf='message'>
-        {{message}}</div>
-    <table class=" table table-hover">
-        <thead>
-            <tr>
-                <th>description</th>
-                <th>done</th>
-                <th>date</th>
-                <th>update</th>
-                <th>delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
-                <td><button (click)="removeTodo(todo.id)" class="btn btn-warning">Delete</button></td>
-            </tr>
-            <tr *ngFor="let todo of todos">
-                <td>{{todo.description}}</td>
-                <td>{{todo.done}}</td>
-                <td>{{todo.targetDate | date}}</td>
-                <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
-                <td><button (click)="removeTodo(todo.id)" class="btn btn-warning">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <h2>Add Todo</h2>
-    <div class="alert alert-warning" *ngIf="invalidDescriptionFormMessage">
-        Description can not be empty.
-    </div>
-    <div class="alert alert-warning" *ngIf="invalidDateFormMessage">
-        Target date can not be empty.
-    </div>
-    <form (ngSubmit)="addTodo()">
-        <div class="form-group">
-            <label>Description</label>
-            <input type="tekst" name="description" [(ngModel)]="todo.description" class='form-control'>
+    <div class="box">
+        <div class="alert alert-success" *ngIf='message'>
+            {{message}}</div>
+        <div class="todosTable row content">
+            <table class=" table">
+                <thead>
+                    <tr>
+                        <th style="width: 60%;">description</th>
+                        <th style="width: 20%; ">date</th>
+                        <th style="width: 10%;">update</th>
+                        <th style="width: 10%;">delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tesasdasdasdasdasdasdasdasdast</td>
+                        <td>test</td>
+                        <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+                        <td><button (click)="removeTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>test</td>
+                        <td>test</td>
+                        <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+                        <td><button (click)="removeTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+                    </tr>
+                    <tr *ngFor="let todo of todos">
+                        <td>{{todo.description}}</td>
+                        <td>{{todo.targetDate | date}}</td>
+                        <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+                        <td><button (click)="removeTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="form-group">
-            <label>Target date</label>
-            <input type="date" name="targetDate" [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.targetDate = $event" class='form-control'>
+        <div class="borderTopAddTodo">
+            <div class="addTodo row footer">
+                <h2 class="mt-2 headerAddTodo">Add Todo</h2>
+                <div class="alert alert-warning" *ngIf="invalidDescriptionFormMessage">
+                    Description can not be empty.
+                </div>
+                <div class="alert alert-warning" *ngIf="invalidDateFormMessage">
+                    Target date can not be empty.
+                </div>
+                <form (ngSubmit)="addTodo()">
+                    <div class="form-row">
+                        <div class="col-sm-6 my-1">
+                            <!-- <label>Description</label> -->
+                            <input type="tekst" name="description" [(ngModel)]="todo.description" class='form-control'>
+                        </div>
+                        <div class="col-sm-5 my-1">
+                            <!-- <label>Target date</label> -->
+                            <input type="date" name="targetDate" [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.targetDate = $event" class='form-control'>
+                        </div>
+                        <div class="col-auto my-1 ">
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <button type="submit" class="btn btn-success">Add</button>
-    </form>
+    </div>
 </div>

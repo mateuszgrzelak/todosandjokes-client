@@ -1,9 +1,9 @@
 <div class="container mainContent">
     <div class="menu">
-        <img class="float-left logo" src="../../assets/img/MainLogo.png" alt="Img logo not found">
-        <img class="float-right leftMenu" src="../../assets/img/Logout.png" alt="Img logo not found">
-        <img class="float-right leftMenu" src="../../assets/img/Jokes.png" alt="Img logo not found">
-        <img class="float-right todos leftMenu" src="../../assets/img/Todos.png" alt="Img logo not found">
+        <a routerLink="/todos"><img class="float-left logo ml-4" src="../../assets/img/MainLogo.png" alt="Img logo not found"></a>
+        <a routerLink="/login"><img class="float-right leftMenu mr-2" src="../../assets/img/Logout.png" alt="Img logo not found"></a>
+        <a routerLink="/jokes"><img class="float-right leftMenu" src="../../assets/img/Jokes.png" alt="Img logo not found"></a>
+        <a routerLink="/todos"><img class="float-right todos leftMenu" src="../../assets/img/Todos.png" alt="Img logo not found"></a>
     </div>
     <div [@routeAnimations]="prepareRoute(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>

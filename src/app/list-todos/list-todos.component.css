@@ -1,9 +1,56 @@
 :host {
-    position: relative;
-    height: 100vh;
+    height: 520px;
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .mainContent {
+    position: relative;
+    /* height: 63vh;
+    min-height: 435px; */
+    height: 100%;
     color: white;
     z-index: 5;
+}
+
+.table {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.todosTable {
+    /* display: block;
+    min-height: 180px;
+    width: 100%; */
+    overflow: auto;
+}
+
+.headerAddTodo {
+    color: rgb(133, 136, 163);
+}
+
+.box .row {
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.box .row.content {
+    flex: 1 1 auto;
+}
+
+.box .row.footer {
+    margin: 15px;
+    display: block;
+}
+
+.borderTopAddTodo {
+    border-top: 1px solid #000000;
+    margin: -15px;
 }
