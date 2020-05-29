@@ -138,10 +138,9 @@ export const loggedContent =
       style({}),
       query(':enter, :leave', [
         style({
-          height: '100%',
           'z-index': 10,
           position: 'absolute',
-          width: '100%'
+          width: '100%',
         })
       ]),
       query(':enter', [
