@@ -1,8 +1,97 @@
+:host {
+    height: 520px;
+    display: block;
+}
+
+.overlay {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+.spinner {
+    margin-top: 170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .mainContent {
+    margin: 15px;
     color: white;
-    height: 88vh;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    overflow: visible;
     position: relative;
     z-index: 5;
+}
+
+.line {
+    margin-left: -30px;
+    margin-top: -20px;
+    border-top: 2px solid #000;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 520px;
+}
+
+.box .row.content {
+    flex: 1 1 auto;
+}
+
+.box .row.footer {
+    justify-content: center;
+    margin-bottom: 15px;
+    display: flex;
+    flex: 0 1 40px;
+    margin-left: -30px;
+    margin-right: 0;
+}
+
+.randomContainer {
+    margin-left: -15;
+    border-top: 1px solid black;
+}
+
+.buttonRandom {
+    color: #fff;
+    background-color: #298a85;
+    opacity: 1;
+    /* border-color: #28a745; */
+    display: inline-block;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    transition: 0.3s;
+    margin-top: 10px;
+    outline: none;
+}
+
+.buttonRandom:hover {
+    background-color: #087974;
+    opacity: 1;
+}
+
+.jokesContainer {
+    margin-right: 15px;
+    display: block;
+    overflow-y: auto;
+}
+
+.joke {
+    display: block;
+    border: 2px solid #1B133B;
+    font-size: 1.2rem;
+    transition: 0.1s;
+    border-radius: 0.25rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.joke:hover {
+    background-color: #1B133B;
 }
