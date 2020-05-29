@@ -20,6 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoggedContentComponent } from './logged-content/logged-content.component';
 import { JokesComponent } from './jokes/jokes.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderService } from './service/http/loader.service';
+import { LoaderInterceptor } from './service/http/loader-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,10 +46,14 @@ import { JokesComponent } from './jokes/jokes.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ParticlesModule
+    ParticlesModule,
+    MatProgressSpinnerModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true},
+    LoaderService,
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true},
+
   ],
   bootstrap: [AppComponent]
 })
