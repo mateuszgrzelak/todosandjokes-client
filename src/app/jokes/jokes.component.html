@@ -13,6 +13,6 @@
             </div>
         </div>
 
-        <div class="randomContainer row footer"><button class="buttonRandom" (click)="getJokes()">Random</button></div>
+        <div class="randomContainer row footer"><button class="buttonRandom" [disabled]="disabledButton" (click)="getJokes()">Random</button></div>
     </div>
 </div>
