@@ -1,32 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { animate, trigger, state, style, transition } from '@angular/animations';
 
 export class Todo {
-  constructor(public id: number, public description: string,
-    public done: boolean, public targetDate: Date) { }
+  constructor(public description: string,
+    public targetDate) { }
 }
 
 @Component({
   selector: 'app-list-todos',
   templateUrl: './list-todos.component.html',
-  styleUrls: ['./list-todos.component.css']
+  styleUrls: ['./list-todos.component.css'],
+  animations:[
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(300)),
+    ]),
+  ]
 })
 export class ListTodosComponent implements OnInit {
 
-  todos: Todo[];
+  color = 'primary';
+  mode = 'indeterminate';
+  value = 50;
+  isLoading: boolean;
+
+  todos: Todo[] = [];
 
   todo: Todo;
 
   message: string;
 
-  constructor(private todoService: TodoDataService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private todoService: TodoDataService, private router: Router, private route: ActivatedRoute) {}
 
   invalidDescriptionFormMessage = false;
   invalidDateFormMessage = false;
 
   ngOnInit(): void {
-    this.todoService.getTodos("mati").subscribe(
+    this.todoService.getTodos().subscribe(
       response => {
         this.todos = response;
       }
@@ -38,13 +52,13 @@ export class ListTodosComponent implements OnInit {
         }
       }
     )
-    this.todo = new Todo(0, '', false, new Date());
+    this.todo = new Todo('', '2020-12-12');
   }
 
   removeTodo(num: number) {
-    this.todoService.removeTodo("mati", num).subscribe(
-      response => {
-        this.ngOnInit()
+    this.todoService.removeTodo(num).subscribe(
+      success => {
+        this.todos.splice(num, 1);
         this.message = `Todo ${num} deleted Successful`;
       }
     );
@@ -62,10 +76,13 @@ export class ListTodosComponent implements OnInit {
       this.invalidDescriptionFormMessage = false;
     }
     if(!this.invalidDateFormMessage && !this.invalidDescriptionFormMessage){
-      this.todoService.addTodo('mati', this.todo).subscribe(
+      let buff: Todo = new Todo(this.todo.description, this.todo.targetDate);
+      console.log(this.todo.targetDate);
+      this.todo = new Todo('',  '2020-12-12');
+      this.todoService.addTodo(buff).subscribe(
         success => {
-          this.ngOnInit()
-          this.message = 'Todo added Successful'
+          this.todos.push(buff);
+          this.message = 'Todo added Successful';
         }
       );
     }
