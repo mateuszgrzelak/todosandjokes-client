@@ -15,6 +15,7 @@ export class JokesComponent implements OnInit {
   mode = 'indeterminate';
   value = 50;
   isLoading: boolean;
+  disabledButton=false;
 
   constructor(private jokesService: JokesDataService, private loaderService: LoaderService) {
     this.loaderService.isLoading.subscribe(
@@ -32,9 +33,11 @@ export class JokesComponent implements OnInit {
   jokes: Joke[];
 
   getJokes() {
+    this.disabledButton=true;
     this.jokesService.getJokes().subscribe(
       data => {
         this.jokes = data;
+        this.disabledButton=false;
       }
     );
     console.log(this.isLoading);
