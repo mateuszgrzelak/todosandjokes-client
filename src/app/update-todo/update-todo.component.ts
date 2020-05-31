@@ -18,14 +18,14 @@ export class UpdateTodoComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoNumber = this.route.snapshot.params['id'];
-    this.todo = new Todo(0,'',false, new Date());
-    this.todoService.getTodo('mati',this.todoNumber).subscribe(
+    this.todo = new Todo('', new Date());
+    this.todoService.getTodo(this.todoNumber).subscribe(
       data => this.todo = data
     );
   }
 
   updateTodo(){
-    this.todoService.updateTodo('mati',this.todo).subscribe(
+    this.todoService.updateTodo(this.todoNumber, this.todo).subscribe(
       success => this.router.navigate(['/todos'], {queryParams:{updated: 'true'}})
     );
   }
