@@ -10,24 +10,24 @@ export class TodoDataService {
 
   constructor(private http: HttpClient) { }
 
-  getTodos(name:string){
-    return this.http.get<Todo[]>(`${API_URL}/todos/${name}`);
+  getTodos(){
+    return this.http.get<Todo[]>(`${API_URL}/todos/`);
   }
 
-  removeTodo(name:string, num:number){
-    return this.http.delete(`${API_URL}/todos/${name}/${num}`);
+  removeTodo(num:number){
+    return this.http.delete(`${API_URL}/todos/${num}`);
   }
 
-  addTodo(name:string, todo:Todo){
-    return this.http.post<Todo>(`${API_URL}/todos/${name}/`, todo);
+  addTodo(todo:Todo){
+    return this.http.post<Todo>(`${API_URL}/todos/`, todo);
   }
 
-  getTodo(name, id){
-    return this.http.get<Todo>(`${API_URL}/todos/${name}/${id}`)
+  getTodo(id:number){
+    return this.http.get<Todo>(`${API_URL}/todos/${id}`)
   }
 
-  updateTodo(name: string,todo: Todo){
-    return this.http.put<Todo>(`${API_URL}/todos/${name}/`, todo);
+  updateTodo(id:number, todo: Todo){
+    return this.http.put<Todo>(`${API_URL}/todos/${id}`, todo);
   }
 
 }
