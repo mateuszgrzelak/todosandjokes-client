@@ -9,42 +9,45 @@ import { MustMatch } from '../validation/must-match';
 })
 export class RegistrationComponent implements OnInit {
 
-  userAccountForm: FormGroup;
-  // username: string=''; //minLength = 4
-  // password: string=''; //minLength = 5
-  // confirmPassword: string=''; //minLength = 5, equal to password
-  // email: string=''; // proper syntax
+  registerForm: FormGroup;
+  passwordSize = 5;
 
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.userAccountForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
       'username': new FormControl('', [
         Validators.required,
-        Validators.minLength(4)
       ]),
       'password': new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(this.passwordSize)
       ]),
       'confirmPassword': new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
       ]),
       'email': new FormControl('', [
         Validators.required,
-        Validators.email
+        Validators.pattern("[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{2,}[.]{1}[a-zA-Z]{2,}")
       ])
     },{
       validator: MustMatch('password', 'confirmPassword')
     });
   }
 
-  get f() { return this.userAccountForm.controls; }
+  get f() { return this.registerForm.controls; }
 
   register(){
+    console.log(this.registerForm.controls.username.value);
+    console.log(this.registerForm.controls.password.value);
+    
+    if(this.registerForm.invalid){
+      return;
+    }
+
     console.log('registration');
+
   }
 
 }
