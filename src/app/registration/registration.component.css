@@ -91,3 +91,18 @@ input:focus {
     text-align: center;
     color: white;
 }
+
+.dissableButton {
+    cursor: not-allowed;
+}
+
+.errorMessage .button-row {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+}
+
+.errorMessage .button-row:hover {
+    cursor: pointer;
+}
