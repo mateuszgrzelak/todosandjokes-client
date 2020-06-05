@@ -23,6 +23,9 @@ import { JokesComponent } from './jokes/jokes.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderService } from './service/http/loader.service';
 import { LoaderInterceptor } from './service/http/loader-interceptor.service';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { ResultDialogComponent } from './registration/result-dialog/result-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { LoaderInterceptor } from './service/http/loader-interceptor.service';
     RegistrationComponent,
     LoggedContentComponent,
     JokesComponent,
+    ResultDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,12 +52,18 @@ import { LoaderInterceptor } from './service/http/loader-interceptor.service';
     HttpClientModule,
     ParticlesModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatButtonModule
+  ],
+  entryComponents: [
+    ResultDialogComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true},
     LoaderService,
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true},
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
 
   ],
   bootstrap: [AppComponent]
