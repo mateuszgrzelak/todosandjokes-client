@@ -32,3 +32,14 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.registration-result-dialog .mat-dialog-container {
+    max-width: 400px;
+    color: white;
+    background-color: #264f76;
+}
+
+.registration-result-dialog .mat-dialog-container button:focus {
+    outline: none;
+    border: 0;
+}
