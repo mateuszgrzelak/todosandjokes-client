@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from 'src/app/registration/registration.component';
+import { UserAccount } from 'src/app/registration/registration.component';
 import { API_URL } from 'src/app/app.constants';
+import { User } from 'src/app/login/login.component';
+import { Response } from 'src/app/app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,11 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  createAccount(user: User){
-    console.log(user.username +' '+user.password + ' '+ user.email);
-    return this.http.post<User>(`${API_URL}/registration/`, user);
+  createAccount(userAccount: UserAccount){
+    return this.http.post<UserAccount>(`${API_URL}/registration/`, userAccount);
+  }
+
+  identificate(user: User){
+    return this.http.post<Response>(`${API_URL}/login/`, user)
   }
 }
