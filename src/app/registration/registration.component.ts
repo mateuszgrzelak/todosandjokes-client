@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 import { Router } from '@angular/router';
 
-export class User{
+export class UserAccount{
   constructor(public username:string, public password: string, public email: string){}
 }
 
@@ -54,7 +54,7 @@ export class RegistrationComponent implements OnInit {
       return;
     }
     
-    this.authentication.createAccount(new User(this.f.username.value, this.f.password.value, this.f.email.value)).subscribe(
+    this.authentication.createAccount(new UserAccount(this.f.username.value, this.f.password.value, this.f.email.value)).subscribe(
         data => {
           const dialogRef = this.matDialog.open(ResultDialogComponent, {
             panelClass: 'registration-result-dialog',
