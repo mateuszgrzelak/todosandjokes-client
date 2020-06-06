@@ -93,3 +93,20 @@ input:focus {
 .about {
     width: 50%;
 }
+
+.invalid {
+    border: 2.5px solid #a94442;
+    border-radius: 0.5rem;
+    background-color: #f1cdcd;
+}
+
+.errorMessage .button-row {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+}
+
+.errorMessage .button-row:hover {
+    cursor: pointer;
+}
