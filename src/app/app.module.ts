@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,8 @@ import { LoaderInterceptor } from './service/http/loader-interceptor.service';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { ResultDialogComponent } from './registration/result-dialog/result-dialog.component';
+
+
 
 @NgModule({
   declarations: [
@@ -54,7 +58,7 @@ import { ResultDialogComponent } from './registration/result-dialog/result-dialo
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   entryComponents: [
     ResultDialogComponent
@@ -64,7 +68,9 @@ import { ResultDialogComponent } from './registration/result-dialog/result-dialo
     LoaderService,
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
-
+    CookieService, 
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService  
   ],
   bootstrap: [AppComponent]
 })
