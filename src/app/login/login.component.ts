@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BasicAuthenticationService } from '../service/basic-authentication.service';
 import { AuthenticationService } from '../service/security/authentication.service';
 
 export class User{
@@ -37,13 +36,12 @@ export class LoginComponent implements OnInit {
       this.invalidPassword = false;
     }
     if(this.invalidUsername || this.invalidPassword){
-      console.log('nieprawidlowe');
       return;
     }
     this.authentication.identificate(new User(this.username, this.password)).subscribe(
       data => {
-        console.log(data);
-        // this.router.navigate(['todos'])
+        this.authentication.setJWT(data.message);
+        this.router.navigate(['todos']);
       },
       error => {
         this.loginFailed=true;
