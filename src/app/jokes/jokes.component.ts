@@ -26,7 +26,6 @@ export class JokesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.isLoading);
     this.getJokes();
   }
 
@@ -40,7 +39,6 @@ export class JokesComponent implements OnInit {
         this.disabledButton=false;
       }
     );
-    console.log(this.isLoading);
   }
 
 }
