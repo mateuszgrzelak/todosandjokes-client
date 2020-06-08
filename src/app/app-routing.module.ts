@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'about', component: AboutWebsiteComponent, data: { animation: "AboutPage" } },
   { path: 'registration', component: RegistrationComponent, data: { animation: "RegistrationPage" } },
   {
-    path: '', component: LoggedContentComponent, data: { animation: "ContentPage" },
+    path: '', component: LoggedContentComponent, canActivate: [RouteGuardService], data: { animation: "ContentPage" },
     children: [
       { path: '', redirectTo: 'todos', pathMatch: 'full'},
       { path: 'todos', component: ListTodosComponent, data: { animation: "TodosPage" } },
@@ -30,7 +30,7 @@ const routes: Routes = [
   },
   { path: '**', component: ErrorComponent }
 ];
-// canActivate: [RouteGuardService] 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
