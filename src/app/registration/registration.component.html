@@ -18,7 +18,7 @@
                     <input type="password" class="form-control" placeholder="password" formControlName="password" required>
                 </div>
                 <div class="passwordInfo" *ngIf="(f.password.dirty || f.password.touched ) && f.password.errors">
-                    <span>Password size must be greather than {{passwordSize}}</span>
+                    <span>The minimum password length is {{passwordSize}}</span>
                 </div>
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
