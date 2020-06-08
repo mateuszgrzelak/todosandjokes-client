@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
-import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,12 +9,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
-import { MenuComponent } from './menu/menu.component';
-import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
-import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 import { ParticlesModule } from 'ngx-particle';
 import { AboutWebsiteComponent } from './about-website/about-website.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,8 +24,11 @@ import { LoaderInterceptor } from './service/http/loader-interceptor.service';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { ResultDialogComponent } from './registration/result-dialog/result-dialog.component';
+import { API_URL, JWT_NAME } from './app.constants';
 
-
+export function tokenGetter() {
+  return localStorage.getItem(`${JWT_NAME}`);
+}
 
 @NgModule({
   declarations: [
@@ -38,8 +37,6 @@ import { ResultDialogComponent } from './registration/result-dialog/result-dialo
     LoginComponent,
     ErrorComponent,
     ListTodosComponent,
-    MenuComponent,
-    FooterComponent,
     LogoutComponent,
     UpdateTodoComponent,
     AboutWebsiteComponent,
@@ -53,24 +50,27 @@ import { ResultDialogComponent } from './registration/result-dialog/result-dialo
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
     ParticlesModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatDialogModule,
     MatButtonModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        skipWhenExpired: true,
+        whitelistedDomains: ['localhost:8080']
+      },
+    }),
   ],
   entryComponents: [
     ResultDialogComponent
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true},
     LoaderService,
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true},
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
-    CookieService, 
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService  
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},  
   ],
   bootstrap: [AppComponent]
 })
