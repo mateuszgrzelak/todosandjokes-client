@@ -15,7 +15,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="password" formControlName="password" required>
+                    <input type="password" class="form-control" placeholder="password" formControlName="password"
+                        required>
                 </div>
                 <div class="passwordInfo" *ngIf="(f.password.dirty || f.password.touched ) && f.password.errors">
                     <span>The minimum password length is {{passwordSize}}</span>
@@ -24,7 +25,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="confirm password" formControlName="confirmPassword" required>
+                    <input type="password" class="form-control" placeholder="confirm password"
+                        formControlName="confirmPassword" required>
                 </div>
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
@@ -39,7 +41,9 @@
                 <div class="form-group d-flex justify-content-center">
                     <a routerLink="/login" class="btn float-left btn-info about">Back</a>
                     <div class="space float-left"></div>
-                    <input type="submit" value="Register" [disabled]="registerForm.invalid" [ngClass]="{'dissableButton': registerForm.invalid}" class="btn float-right login_btn acceptForm">
+                    <input type="submit" value="Register" [disabled]="registerForm.invalid"
+                        [ngClass]="{'dissableButton': registerForm.invalid}"
+                        class="btn float-right login_btn acceptForm">
                 </div>
             </form>
         </div>

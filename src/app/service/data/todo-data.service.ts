@@ -11,15 +11,15 @@ export class TodoDataService {
   constructor(private http: HttpClient) { }
 
   getTodos(){
-    return this.http.get<Todo[]>(`${API_URL}/todos/`);
+    return this.http.get<Todo[]>(`${API_URL}/todos`);
   }
 
   removeTodo(num:number){
-    return this.http.delete(`${API_URL}/todos/${num}`);
+    return this.http.delete(`${API_URL}/todos/${num}/`);
   }
 
   addTodo(todo:Todo){
-    return this.http.post<Todo>(`${API_URL}/todos/`, todo);
+    return this.http.post<Todo>(`${API_URL}/todos`, todo);
   }
 
   getTodo(id:number){

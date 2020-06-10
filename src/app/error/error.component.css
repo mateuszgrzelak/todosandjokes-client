@@ -1,0 +1,22 @@
+:host {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    min-height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    z-index: 4;
+    text-align: center;
+}
+
+.errorMessage a {
+    color: red;
+    font-size: 3rem;
+    font: bold;
+}

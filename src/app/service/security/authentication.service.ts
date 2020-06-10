@@ -15,11 +15,11 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private cookieService: CookieService, private jwtHelper: JwtHelperService) { }
 
   createAccount(userAccount: UserAccount){
-    return this.http.post<UserAccount>(`${API_URL}/registration/`, userAccount);
+    return this.http.post<UserAccount>(`${API_URL}/registration`, userAccount);
   }
 
   identificate(user: User){
-    return this.http.post<Response>(`${API_URL}/login/`, user);
+    return this.http.post<Response>(`${API_URL}/login`, user);
   }
 
   setJWT(value: string){

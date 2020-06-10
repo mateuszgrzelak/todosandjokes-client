@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { API_URL } from 'src/app/app.constants';
 
 export class Joke {
   constructor(public id: number,
@@ -16,6 +17,6 @@ export class JokesDataService {
   constructor(private http: HttpClient) { }
 
   getJokes(){
-    return this.http.get<Joke[]>('https://official-joke-api.appspot.com/random_ten');
+    return this.http.get<Joke[]>(`${API_URL}/jokes`);
   }
 }

@@ -3,7 +3,8 @@
         <div class="line"></div>
         <div class="jokesContainer row content">
             <div *ngIf="isLoading" class="overlay">
-                <mat-progress-spinner class="spinner" [color]="color" [mode]="mode" [value]="value"></mat-progress-spinner>
+                <mat-progress-spinner class="spinner" [color]="color" [mode]="mode" [value]="value">
+                </mat-progress-spinner>
             </div>
             <div *ngIf="isLoading == false">
                 <div class="joke" *ngFor="let joke of jokes">
@@ -13,6 +14,7 @@
             </div>
         </div>
 
-        <div class="randomContainer row footer"><button class="buttonRandom" [disabled]="disabledButton" (click)="getJokes()">Random</button></div>
+        <div class="randomContainer row footer"><button class="buttonRandom" [disabled]="disabledButton"
+                (click)="getJokes()">Random</button></div>
     </div>
 </div>

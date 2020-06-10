@@ -157,4 +157,27 @@ export const loggedContent =
       ]),
       query(':enter', animateChild()),
     ]),
+    transition('TodosPage <=> UpdatePage', [
+      style({}),
+      query(':enter, :leave', [
+        style({
+          'z-index': 10,
+          position: 'absolute',
+          width: '100%',
+        })
+      ]),
+      query(':enter', [
+        style({ opacity: 0 })
+      ]),
+      query(':leave', animateChild()),
+      group([
+        query(':leave', [
+          animate('500ms ease-out', style({ opacity: 0 }))
+        ]),
+        query(':enter', [
+          animate('500ms ease-out', style({ opacity: 1 }))
+        ])
+      ]),
+      query(':enter', animateChild()),
+    ]),
   ]);

@@ -39,7 +39,8 @@
                         </div>
                         <div class="col-sm-5 my-1">
                             <!-- <label>Target date</label> -->
-                            <input type="date" name="targetDate" [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.targetDate = $event" class='form-control'>
+                            <input type="date" name="targetDate" [ngModel]="todo.targetDate | date:'yyyy-MM-dd'"
+                                (ngModelChange)="todo.targetDate = $event" class='form-control'>
                         </div>
                         <div class="col-auto my-1 ">
                             <button type="submit" class="btn btn-success">Add</button>

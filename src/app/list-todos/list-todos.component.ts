@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { animate, trigger, state, style, transition } from '@angular/animations';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { API_URL } from '../app.constants';
 
 export class Todo {
   constructor(public description: string,
@@ -34,7 +36,9 @@ export class ListTodosComponent implements OnInit {
 
   message: string;
 
-  constructor(private todoService: TodoDataService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private todoService: TodoDataService, private router: Router, private route: ActivatedRoute, private http: HttpClient) {}
+
+ 
 
   invalidDescriptionFormMessage = false;
   invalidDateFormMessage = false;
@@ -77,7 +81,6 @@ export class ListTodosComponent implements OnInit {
     }
     if(!this.invalidDateFormMessage && !this.invalidDescriptionFormMessage){
       let buff: Todo = new Todo(this.todo.description, this.todo.targetDate);
-      console.log(this.todo.targetDate);
       this.todo = new Todo('',  '2020-12-12');
       this.todoService.addTodo(buff).subscribe(
         success => {

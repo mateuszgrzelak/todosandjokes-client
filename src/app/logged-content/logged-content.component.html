@@ -1,9 +1,13 @@
 <div class="container mainContent">
     <div class="menu">
-        <a routerLink="/todos"><img class="float-left logo ml-4" src="../../assets/img/MainLogo.png" alt="Img not found"></a>
-        <a routerLink="/login" (click)="logout()"><img class="float-right leftMenu mr-2" src="../../assets/img/Logout.png" alt="Img not found"></a>
-        <a routerLink="/jokes"><img class="float-right leftMenu" src="../../assets/img/Jokes.png" alt="Img logo found"></a>
-        <a routerLink="/todos"><img class="float-right todos leftMenu" src="../../assets/img/Todos.png" alt="Img not found"></a>
+        <a routerLink="/todos"><img class="float-left logo ml-4" src="../../assets/img/MainLogo.png"
+                alt="Img not found"></a>
+        <a routerLink="/login" (click)="logout()"><img class="float-right leftMenu mr-2"
+                src="../../assets/img/Logout.png" alt="Img not found"></a>
+        <a routerLink="/jokes"><img class="float-right leftMenu" src="../../assets/img/Jokes.png"
+                alt="Img logo found"></a>
+        <a routerLink="/todos"><img class="float-right todos leftMenu" src="../../assets/img/Todos.png"
+                alt="Img not found"></a>
     </div>
     <div [@routeAnimations]="prepareRoute(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>

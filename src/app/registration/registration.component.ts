@@ -6,8 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 import { Router } from '@angular/router';
 
-export class UserAccount{
-  constructor(public username:string, public password: string, public email: string){}
+export class UserAccount {
+  constructor(public username: string, public password: string, public email: string) { }
 }
 
 @Component({
@@ -19,11 +19,11 @@ export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
   passwordSize = 5;
-  errorMessage=false;
+  errorMessage = false;
 
 
-  constructor(private formBuilder: FormBuilder, private authentication: AuthenticationService, 
-    public matDialog: MatDialog, private router:Router) { }
+  constructor(private formBuilder: FormBuilder, private authentication: AuthenticationService,
+    public matDialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -41,40 +41,40 @@ export class RegistrationComponent implements OnInit {
         Validators.required,
         Validators.pattern("[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{2,}[.]{1}[a-zA-Z]{2,}")
       ])
-    },{
+    }, {
       validator: MustMatch('password', 'confirmPassword')
     });
   }
 
   get f() { return this.registerForm.controls; }
 
-  register(){
+  register() {
 
-    if(this.registerForm.invalid){
+    if (this.registerForm.invalid) {
       return;
     }
-    
+
     this.authentication.createAccount(new UserAccount(this.f.username.value, this.f.password.value, this.f.email.value)).subscribe(
-        data => {
-          const dialogRef = this.matDialog.open(ResultDialogComponent, {
-            panelClass: 'registration-result-dialog',
-            data: this.f.email.value
-          });
-          dialogRef.afterClosed().subscribe(result => {
-            this.router.navigate(['login']);
-          });
-        },
-        error =>{
-          this.errorMessage=true;
-          this.f.password.setValue('');
-          this.f.confirmPassword.setValue(''); 
-        }
+      data => {
+        const dialogRef = this.matDialog.open(ResultDialogComponent, {
+          panelClass: 'registration-result-dialog',
+          data: this.f.username.value
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          this.router.navigate(['login']);
+        });
+      },
+      error => {
+        this.errorMessage = true;
+        this.f.password.setValue('');
+        this.f.confirmPassword.setValue('');
+      }
     );
 
   }
 
-  closeErrorMessage(){
-    this.errorMessage=false;
+  closeErrorMessage() {
+    this.errorMessage = false;
   }
 
 }

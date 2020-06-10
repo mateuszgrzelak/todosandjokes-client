@@ -34,7 +34,7 @@ body {
 }
 
 .registration-result-dialog .mat-dialog-container {
-    max-width: 400px;
+    max-width: 370px;
     color: white;
     background-color: #264f76;
 }

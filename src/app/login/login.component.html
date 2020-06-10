@@ -14,14 +14,16 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" name="username" [(ngModel)]="username" class="form-control" [ngClass]="{'invalid': invalidUsername}" placeholder="username">
+                    <input type="text" name="username" [(ngModel)]="username" class="form-control"
+                        [ngClass]="{'invalid': invalidUsername}" placeholder="username">
 
                 </div>
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" name="password" [(ngModel)]="password" class="form-control" [ngClass]="{'invalid': invalidPassword}" placeholder="password">
+                    <input type="password" name="password" [(ngModel)]="password" class="form-control"
+                        [ngClass]="{'invalid': invalidPassword}" placeholder="password">
                 </div>
                 <div class="alert alert-danger errorMessage" *ngIf="loginFailed">
                     <div class="button-row" style="float: right;" (click)="closeErrorMessage()">x</div>
