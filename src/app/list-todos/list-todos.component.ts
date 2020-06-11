@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { animate, trigger, state, style, transition } from '@angular/animations';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { API_URL } from '../app.constants';
+import { HttpClient } from '@angular/common/http';
+import { formatDate } from '@angular/common';
+
 
 export class Todo {
   constructor(public description: string,
@@ -14,14 +15,14 @@ export class Todo {
   selector: 'app-list-todos',
   templateUrl: './list-todos.component.html',
   styleUrls: ['./list-todos.component.css'],
-  animations:[
+  animations: [
     trigger('fadeInOut', [
       state('void', style({
         opacity: 0
       })),
       transition('void <=> *', animate(300)),
     ]),
-  ]
+  ],
 })
 export class ListTodosComponent implements OnInit {
 
@@ -36,9 +37,9 @@ export class ListTodosComponent implements OnInit {
 
   message: string;
 
-  constructor(private todoService: TodoDataService, private router: Router, private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private todoService: TodoDataService, private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
 
- 
+
 
   invalidDescriptionFormMessage = false;
   invalidDateFormMessage = false;
@@ -56,7 +57,7 @@ export class ListTodosComponent implements OnInit {
         }
       }
     )
-    this.todo = new Todo('', '2020-12-12');
+    this.todo = new Todo('', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
   }
 
   removeTodo(num: number) {
@@ -71,17 +72,17 @@ export class ListTodosComponent implements OnInit {
   addTodo() {
     if (!this.todo.targetDate) {
       this.invalidDateFormMessage = true;
-    }else{
+    } else {
       this.invalidDateFormMessage = false;
     }
     if (!this.todo.description) {
       this.invalidDescriptionFormMessage = true;
-    }else{
+    } else {
       this.invalidDescriptionFormMessage = false;
     }
-    if(!this.invalidDateFormMessage && !this.invalidDescriptionFormMessage){
+    if (!this.invalidDateFormMessage && !this.invalidDescriptionFormMessage) {
       let buff: Todo = new Todo(this.todo.description, this.todo.targetDate);
-      this.todo = new Todo('',  '2020-12-12');
+      this.todo = new Todo('', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
       this.todoService.addTodo(buff).subscribe(
         success => {
           this.todos.push(buff);
