@@ -14,4 +14,20 @@
     max-width: 700px;
     background-color: rgba(0, 0, 0, 0.5) !important;
     z-index: 4;
+    font-size: 1.1rem;
+}
+
+.infoContent a {
+    color: white;
+    font: bold;
+    text-decoration: underline;
+}
+
+.infoContent .btn {
+    width: 100px;
+}
+
+.buttonDiv {
+    display: grid;
+    justify-items: center;
 }
