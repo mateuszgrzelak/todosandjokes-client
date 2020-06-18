@@ -22,7 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderService } from './service/http/loader.service';
 import { LoaderInterceptor } from './service/http/loader-interceptor.service';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { ResultDialogComponent } from './registration/result-dialog/result-dialog.component';
 import { API_URL, JWT_NAME } from './app.constants';
 
@@ -60,7 +60,7 @@ export function tokenGetter() {
       config: {
         tokenGetter: tokenGetter,
         skipWhenExpired: true,
-        whitelistedDomains: ['localhost:8080']
+        whitelistedDomains: [API_URL]
       },
     }),
   ],
@@ -69,8 +69,8 @@ export function tokenGetter() {
   ],
   providers: [
     LoaderService,
-    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true},
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},  
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
   ],
   bootstrap: [AppComponent]
 })
