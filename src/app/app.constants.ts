@@ -1,2 +1,2 @@
-export const API_URL="http://localhost:8080";
-export const JWT_NAME="jwt";
+export const API_URL = "https://todosandjokesapi.herokuapp.com";
+export const JWT_NAME = "jwt";
