@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,22 +24,10 @@ import { LoaderInterceptor } from './service/http/loader-interceptor.service';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ResultDialogComponent } from './registration/result-dialog/result-dialog.component';
-import { JWT_NAME } from './app.constants';
+import { API_URL, JWT_NAME } from './app.constants';
 
-export const environment = {
-  production: true,
-  api: 'https://todosandjokesapi.herokuapp.com',
-  whitelist: ['todosandjokesapi.herokuapp.com', 'https://todosandjokesapi.herokuapp.com', 'todosandjokesapi.herokuapp:443'],
-  version: 'x.x.x',
-};
-
-export function jwtOptionsFactory() {
-  return {
-    tokenGetter: () => {
-      return localStorage.getItem('${JWT_NAME}');
-    },
-    whitelistedDomains: environment.whitelist
-  }
+export function tokenGetter() {
+  return localStorage.getItem(`${JWT_NAME}`);
 }
 
 @NgModule({
@@ -69,10 +57,11 @@ export function jwtOptionsFactory() {
     MatButtonModule,
     HttpClientModule,
     JwtModule.forRoot({
-      jwtOptionsProvider: {
-        provide: JWT_OPTIONS,
-        useFactory: jwtOptionsFactory
-      }
+      config: {
+        tokenGetter: tokenGetter,
+        skipWhenExpired: true,
+        whitelistedDomains: ['todosandjokesapi.herokuapp.com']
+      },
     }),
   ],
   entryComponents: [
