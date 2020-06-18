@@ -60,7 +60,7 @@ export function tokenGetter() {
       config: {
         tokenGetter: tokenGetter,
         skipWhenExpired: true,
-        whitelistedDomains: [API_URL]
+        whitelistedDomains: ['*']
       },
     }),
   ],
