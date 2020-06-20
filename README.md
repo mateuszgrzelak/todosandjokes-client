@@ -1,27 +1,39 @@
-# Todo
+# TodosAndJokes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+Client side project for web application deployed on heroku.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+First of all you need to have installed [Node.js](https://nodejs.org/en/) and [Angular CLI](https://cli.angular.io/). All steps required to install software are listed on official websites.
 
-## Build
+## Build and run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+In order to install all required dependencies and build this project you need to clone this repository and in Command Line Interpreter enter:
 
-## Running unit tests
+```
+npm install
+ng serve
+```
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Website appearance
 
-## Running end-to-end tests
+<p align="center"> 
+<img src="https://github.com/mateuszgrzelak/todosandjokes-client/blob/master/github_img/login.gif">
+</p>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+<p align="center"> 
+<img src="https://github.com/mateuszgrzelak/todosandjokes-client/blob/master/github_img/content.gif">
+</p>
 
-## Further help
+<p align="center"> 
+<img src="https://github.com/mateuszgrzelak/todosandjokes-client/blob/master/github_img/todosList.png">
+</p>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<p align="center"> 
+<img src="https://github.com/mateuszgrzelak/todosandjokes-client/blob/master/github_img/jokesList.png">
+</p>
