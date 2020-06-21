@@ -1,6 +1,6 @@
 # TodosAndJokes
 
-Client side project for web application deployed on heroku.
+Client side project of web application deployed on heroku.
 
 ## Getting Started
 
@@ -20,20 +20,3 @@ ng serve
 ```
 Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Website appearance
-
-<p align="center"> 
-<img src="https://github.com/mateuszgrzelak/todosandjokes-client/blob/master/github_img/login.gif">
-</p>
-
-<p align="center"> 
-<img src="https://github.com/mateuszgrzelak/todosandjokes-client/blob/master/github_img/content.gif">
-</p>
-
-<p align="center"> 
-<img src="https://github.com/mateuszgrzelak/todosandjokes-client/blob/master/github_img/todosList.png">
-</p>
-
-<p align="center"> 
-<img src="https://github.com/mateuszgrzelak/todosandjokes-client/blob/master/github_img/jokesList.png">
-</p>
